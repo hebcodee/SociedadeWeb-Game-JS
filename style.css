@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  position: relative;
+  justify-content: end;
+  align-items: center;
+  min-height: 100vh;
+  background: url("imagens/backg2.png");
+  border: 2px solid red;
+  height: 990px;
+}
+
+.top {
+  display: flex;
+  position: absolute;
+  border: 2px solid red;
+  top: 70px;
+  left: 140px;
+  color: white;
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.top h1 {
+  font-size: 6em;
+}
+.top img {
+  width: 100px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 430px;
+  height: 480px;
+  border-radius: 20px;
+  margin-right: 90px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2.5px);
+  background: url(imagens/backg.png);
+  overflow: hidden;
+  margin-bottom: 160px;
+}
+
+/* Animação dos arcos */
+@keyframes arcMovement {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) translate(260px);
+  }
+  50% {
+    opacity: 3;
+    transform: rotate(1800000deg) translate(260px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(3600000deg) translate(260px);
+  }
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 800%;
+  height: 100px;
+  background: white;
+  transform: rotate(-45deg);
+  animation: beamAnimation 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes beamAnimation {
+  0% {
+    transform: translate(-100%, -100%) rotate(-45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(-45deg);
+  }
+}
+
+.bubble {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.6;
+  animation: bubbleAnimation 3s infinite;
+  z-index: 2;
+}
+
+.bubble1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.bubble2 {
+  top: 30%;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+.bubble3 {
+  top: 50%;
+  left: 70%;
+  animation-delay: 0.5s;
+}
+
+.bubble4 {
+  top: 70%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+.bubble5 {
+  top: 90%;
+  left: 70%;
+  animation-delay: 1.5s;
+}
+
+@keyframes bubbleAnimation {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-100%, 100%) scale(1) rotate(-450deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-300px) scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+.login {
+  /*border:2px solid red;*/
+  display: block;
+  align-items: center;
+  position: relative;
+  width: 400px;
+  z-index: 2;
+  top: 40px;
+  left: 1.5px;
+  transition: 1s ease-in-out;
+}
+
+.login form {
+  width: 100%;
+  padding: 0 20px;
+  margin-top: 70px;
+}
+
+.container.active .container2 {
+  transform: translateY(-450px);
+}
+
+.container .registro {
+  position: absolute;
+}
+
+.container.active .registro {
+  transform: translateY(-760px);
+}
+
+h2 {
+  font-size: 3em;
+  color: #ffe;
+  text-align: start;
+  font-family: "Pixelify Sans", sans-serif;
+  margin-left: 26px;
+  margin-bottom: 50px;
+}
+
+.input {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #00050a;
+  background: transparent;
+  outline: none;
+  border-radius: 40px;
+  transition: 0.5s ease;
+  font-size: 1em;
+  color: rgb(150, 150, 138);
+  padding: 0 20px;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 10;
+}
+
+.input input:focus,
+.input input:valid {
+  border-color: #ffe;
+}
+
+.input label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+
+.input input:focus ~ label,
+.input input:valid ~ label {
+  top: 1px;
+  font-size: 0.95em;
+  background: #ffffff;
+  padding: 0 6px;
+  color: rgb(10, 10, 0);
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+.forgot {
+  margin: -10px 0 10px;
+  text-align: center;
+}
+
+.forgot a {
+  font-size: 0.85em;
+  color: #ffe;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+.btnlogin {
+  width: 45%;
+  height: 45px;
+  color: #111;
+  background-color: #ffe;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  margin-left: 95px;
+  margin-top: 70px;
+}
+
+.btnregistro {
+  width: 40%;
+  height: 45px;
+  color: #111;
+  background-color: #ffe;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  margin-left: 40px;
+}
+
+.registrolink {
+  margin: 20px 0px 10px 10px;
+  text-align: start;
+  display: inline-block;
+}
+
+.registrolink a {
+  text-decoration: none;
+  color: #ffe;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.loginlink a:hover {
+  text-decoration: underline;
+}
+
+.loginlink {
+  margin: 20px 0px 10px 10px;
+  display: inline-block;
+  backdrop-filter: blur(20px);
+}
+
+.loginlink a {
+  text-decoration: none;
+  color: #ffe;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.registrolink a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  position: absolute;
+  background: url(imagens/minecraft.jpeg);
+  width: 100%;
+  height: 300px;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border: 2px solid red;
+}
+
+.registro {
+  position: absolute;
+  display: block;
+  /*border:2px solid red;*/
+  margin-top: 850px;
+  transition: ease-out 1s;
+  padding: 20px;
+}
+
+.container2 {
+  /*border: 2px solid blue;*/
+  height: 800px;
+  transition: ease-in-out 1s;
+}
+
+.autores {
+  border: 2px solid black;
+  width: 60%;
+  margin-left: 320px;
+}
+
+.autores h3 {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 2em;
+  color: #ffe;
+}
+
+p {
+  font-size: 1.5em;
+  color: rgba(67, 15, 163, 0.849);
+  margin-left: 240px;
+  margin-top: 15px;
+  border: 2px solid red;
+  width: 50%;
+}
