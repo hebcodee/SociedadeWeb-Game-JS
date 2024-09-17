@@ -10,7 +10,7 @@ body {
   justify-content: end;
   align-items: center;
   min-height: 100vh;
-  background: url("imagens/backg2.png");
+  background: url("imagens/backgpedra.png");
   border: 2px solid red;
   height: 990px;
 }
@@ -336,15 +336,28 @@ h2 {
 
 .autores {
   border: 2px solid black;
-  width: 60%;
-  margin-left: 320px;
+  width: 80%;
+  margin-left: 80px;
 }
 
 .autores h3 {
-  text-align: center;
+  text-align: start;
+  margin-left: 100px;
   margin-top: 80px;
-  font-size: 2em;
+  font-size: 1em;
+  color: #fff;
+}
+
+h3 a {
+  text-decoration: none;
   color: #ffe;
+}
+
+hr {
+  width: 90%;
+  margin-left: 80px;
+  margin-top: 20px;
+  color: #ff2;
 }
 
 p {
