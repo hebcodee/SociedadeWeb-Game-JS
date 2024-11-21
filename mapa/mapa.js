@@ -10,6 +10,10 @@ for (let i = 0; i < colisao.length; i += 38 ){
     colisaoMapa.push (colisao.slice(i, 38 + i))
 }
 
+const interacaoMapa = []
+for (let i = 0; i < interacaoData.length; i += 38 ){
+    interacaoMapa.push (interacaoData.slice(i, 38 + i))
+}
 class Borda {
     static width = 96
     static height = 96
@@ -20,24 +24,90 @@ class Borda {
     }
 
     draw () {
-        ctx.fillStyle = "red"
+        ctx.fillStyle = "rgba(0, 0, 0, 0)"
         ctx.fillRect(this.posicao.x,this.posicao.y,this.width,this.height)
     }
 }
 
-const bordas = []
 
 const desvio = {
     x: -1400,
     y: -1000
 }
+
+//Colisoes
+const bordas = []
 colisaoMapa.forEach((row, i) => {
     row.forEach((symbol, j) => {
+        // 1026 === villager
         if(symbol === 101)
         bordas.push(new Borda({posicao: {
             x: j * Borda.width + desvio.x,
             y: i * Borda.height + desvio.y
         }}))
+    })
+})
+
+//Interacoes
+const interacoes = []
+interacaoMapa.forEach((row, i) => {
+    row.forEach((symbol, j) => {
+        // Nathan
+        if (symbol === 2246) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Alan Turing
+          else if (symbol === 2245) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Mural
+          else if (symbol === 2251) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Anonimo
+          else if (symbol === 2247) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Herberth
+          else if (symbol === 2244) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Cozinha
+          else if (symbol === 2248) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // 2243
+          else if (symbol === 2243) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
+          // Pingpong
+          else if (symbol === 2242) {
+            interacoes.push(new Borda({posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+            }}))
+          }
     })
 })
 
@@ -141,13 +211,13 @@ const jogador = new Sprite({
         x: canvas.width / 2 - 128 / 4 / 2,
         y: canvas.height / 2 - 32 / 2
     },
-    imagem: nathanBaixoImagem,
+    imagem: hebBaixoImagem,
     quadros: {max: 4},
     sprites: {
-        up: nathanCimaImagem,
-        left: nathanEsquerdaImagem,
-        down: nathanBaixoImagem,
-        right: nathanDireitaImagem
+        up: hebCimaImagem,
+        left: hebEsquerdaImagem,
+        down: hebBaixoImagem,
+        right: hebDireitaImagem
     }
 })
 
@@ -163,7 +233,7 @@ const teclas = {
 
 
 
-const objetosMoveis = [mapa, ...bordas]
+const objetosMoveis = [mapa, ...bordas, ...interacoes]
 
 function rectangularCollision({rectangle1, rectangle2}) {
     return(rectangle1.posicao.x + rectangle1.width >= rectangle2.posicao.x &&
@@ -177,6 +247,9 @@ function animacao() {
     mapa.desenhar()
     bordas.forEach(borda =>{
         borda.draw()
+    })
+    interacoes.forEach(interacao =>{
+        interacao.draw()
     })
     
     jogador.desenhar()
