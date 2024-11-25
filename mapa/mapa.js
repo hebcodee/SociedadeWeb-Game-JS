@@ -108,8 +108,9 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ['Gosto de dar o cu KKKKKKKKK', "alguem viu minha marmita?"],
-                  aparecer: true
+                  dialogo: ['Oi voce é novo por aqui', "Olhe a biblioteca e depois va ao refeitorio", "alguem viu minha marmita?"],
+                  aparecer: true,
+                  nome: "nathan"
                 }))
           }
           // Alan Turing
@@ -126,11 +127,10 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ["Sou o Alan Xereca", "Alan Turing*", "Aperte [E] para jogar"],
-                  aparecer: true
+                  dialogo: ["oi","Sou o Alan Turing", "Preparado para um Quiz?"],
+                  aparecer: true,
+                  nome: "turing"
                 }))
-
-
           }
           // Anonimo
           else if (symbol === 2247) {
@@ -147,7 +147,8 @@ interacaoMapa.forEach((row, i) => {
                   },
                   animacao: true,
                   dialogo: ['Coma este hamburguer suculento'],
-                  aparecer: true
+                  aparecer: false,
+                  nome: "anonimo"
                 }))
           }
           // Herberth
@@ -164,8 +165,9 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ['Bem Vindo a Sociedade Web', "O jogo ainda nao esta finalizado", "Sintase Livre para explorar o Mapa"],
-                  aparecer: true
+                  dialogo: ['Bem Vindo a Sociedade Web', "O jogo ainda nao esta finalizado", "Sinta-se Livre para explorar o Mapa", "Visite a Biblioteca"],
+                  aparecer: true,
+                  nome: "heb"
                 }))
           }
           // Iago
@@ -182,21 +184,30 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ["iae, suave mofi?", "Bem deboa?", 'Quer conhecer os melhores Hamburgueres da Cidade?', "Ou jogar um Pinpong de nivel profissional?", "vem comigo ratazana"],
-                  aparecer: true
+                  dialogo: ["iae, suave mofi?", "Bem deboa?", 'Quer conhecer os melhores Hamburgueres da Cidade?', "Ou jogar um Pinpong de nivel profissional?", "vem comigo ratao"],
+                  aparecer: true,
+                  nome: "iago"
                 }))
           }
 
-          // Cozinha
+          // Daniel
           else if (symbol === 2248) {
-            interacoes.push(new Borda({posicao: {
-                x: j * Borda.width + desvio.x,
-                y: i * Borda.height + desvio.y
-            }}, 
-            id= i
-          ))
-
-            
+            personagens.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: danielEsquerdaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: true,
+                dialogo: ["Oii seja bem vindo","Gostaria de comer um caldo de xana?", "As Portas do Laboratorio de Informatica Abriram"],
+                aparecer: true,
+                nome: "daniel"
+              }))
           }
           // Pingpong
           else if (symbol === 2242) {
@@ -224,7 +235,8 @@ interacaoMapa.forEach((row, i) => {
                   x: j * Borda.width + desvio.x,
                   y: i * Borda.height + desvio.y
                 }}, 
-                id = 0))
+                id = i*j
+              ))
           }
 
           
@@ -281,6 +293,18 @@ const objetosMoveis = [mapa, ...bordas, ...interacoes, ...personagens, sobreposi
 const renderizaveis= [mapa, ...bordas, ...personagens, jogador, sobreposicao]
 
 
+// bordas.forEach(e => {
+//   console.log(e)
+// })
+
+
+// personagens.forEach(e => {
+//   console.log(e)
+// })
+
+bordas[210].colisao=false
+// console.log("Quantidade: " + bordas.length)
+let velocidadeMovimento = 3
 function animacao() {
     window.requestAnimationFrame(animacao) 
     renderizaveis.forEach((renderizavel) => {
@@ -299,14 +323,14 @@ function animacao() {
         checkForCharacterCollision({
             personagens,
             jogador,
-            personagemDesvio: { x: 0, y: 3 }
+            personagemDesvio: { x: 0, y: velocidadeMovimento }
           })
 
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
           jogador,
-          personagemDesvio: { x: 0, y: 3 }
+          personagemDesvio: { x: 0, y: velocidadeMovimento }
         })
 
         //Colisao Bordas
@@ -316,17 +340,19 @@ function animacao() {
                 rectangle1: jogador,
                 rectangle2: {...borda, posicao:{
                     x: borda.posicao.x,
-                    y: borda.posicao.y + 3
+                    y: borda.posicao.y + velocidadeMovimento
                 }}
             })) {
+              if(borda.colisao){
                 movimento = false
                 break
+              }
             }
         }
 
 
         if(movimento)
-        objetosMoveis.forEach(movable => {movable.posicao.y += 3})}
+        objetosMoveis.forEach(movable => {movable.posicao.y += velocidadeMovimento})}
 
         
     else if (teclas.a.pressionada && ultimaTecla === "a") {
@@ -337,14 +363,14 @@ function animacao() {
         checkForCharacterCollision({
             personagens,
             jogador,
-            personagemDesvio: { x: 3, y: 0 }
+            personagemDesvio: { x: velocidadeMovimento, y: 0 }
           })
         
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
           jogador,
-          personagemDesvio: { x: 3, y: 0 }
+          personagemDesvio: { x: velocidadeMovimento, y: 0 }
         })
 
         //Colisao
@@ -354,17 +380,19 @@ function animacao() {
             if(rectangularCollision({
                 rectangle1: jogador,
                 rectangle2: {...borda, posicao:{
-                    x: borda.posicao.x + 3,
+                    x: borda.posicao.x + velocidadeMovimento,
                     y: borda.posicao.y
                 }}
             })) {
+              if(borda.colisao){
                 movimento = false
                 break
+              }
             }
         }
 
         if(movimento)
-        objetosMoveis.forEach(movable => {movable.posicao.x += 3})}
+        objetosMoveis.forEach(movable => {movable.posicao.x += velocidadeMovimento})}
 
 
     else if (teclas.s.pressionada && ultimaTecla === "s") {
@@ -375,14 +403,14 @@ function animacao() {
         checkForCharacterCollision({
             personagens,
             jogador,
-            personagemDesvio: { x: 0, y: -3 }
+            personagemDesvio: { x: 0, y: -velocidadeMovimento }
           })
 
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
           jogador,
-          personagemDesvio: { x: 0, y: -3 }
+          personagemDesvio: { x: 0, y: -velocidadeMovimento }
         })
 
         //Colisao
@@ -393,15 +421,17 @@ function animacao() {
                 rectangle1: jogador,
                 rectangle2: {...borda, posicao:{
                     x: borda.posicao.x,
-                    y: borda.posicao.y - 3
+                    y: borda.posicao.y - velocidadeMovimento
                 }}
             })) {
+              if(borda.colisao){
                 movimento = false
                 break
+              }
             }
         }
         if(movimento)
-        objetosMoveis.forEach(movable => {movable.posicao.y -= 3})}
+        objetosMoveis.forEach(movable => {movable.posicao.y -= velocidadeMovimento})}
 
 
     else if (teclas.d.pressionada && ultimaTecla === "d") {
@@ -412,14 +442,14 @@ function animacao() {
         checkForCharacterCollision({
             personagens,
             jogador,
-            personagemDesvio: { x: -3, y: 0 }
+            personagemDesvio: { x: -179, y: 0 }
           })
 
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
           jogador,
-          personagemDesvio: { x: -3, y: 0 }
+          personagemDesvio: { x: -velocidadeMovimento, y: 0 }
         })
 
         //Colisao
@@ -429,22 +459,25 @@ function animacao() {
             if(rectangularCollision({
                 rectangle1: jogador,
                 rectangle2: {...borda, posicao:{
-                    x: borda.posicao.x - 3,
+                    x: borda.posicao.x - velocidadeMovimento,
                     y: borda.posicao.y
                 }}
             })) {
+              if(borda.colisao){
                 movimento = false
                 break
+              }
             }
         }
 
         if(movimento)
-        objetosMoveis.forEach(movable => {movable.posicao.x -= 3})}
+        objetosMoveis.forEach(movable => {movable.posicao.x -= velocidadeMovimento})}
 }
 animacao()
 
 //keydown
 let ultimaTecla = ""
+let espacoAtivo = true
 window.addEventListener("keydown", (evento) => { 
     if (jogador.isInteracting) {
         switch (evento.key) {
@@ -464,6 +497,24 @@ window.addEventListener("keydown", (evento) => {
             document.querySelector('#dialogoPersonagemBox').style.display = 'none'
             
 
+            if (jogador.interactionAsset.nome === "iago"){
+              ativarHeb()
+            }
+            
+            if (jogador.interactionAsset.nome === "nathan"){
+              desativarHeb();
+              ativarAnonimo();
+            }
+
+            if (jogador.interactionAsset.nome === "anonimo"){
+              desativarAnonimo();
+            }
+
+            if (jogador.interactionAsset.nome === "turing"){
+              startQuiz();
+            }
+            
+
             //AQUI Checkar se esta colidindo com o Turing
             
             
@@ -475,6 +526,7 @@ window.addEventListener("keydown", (evento) => {
 
     switch (evento.key) {
         case ' ':
+          if (espacoAtivo){
             if (!jogador.interactionAsset) return
 
             //comeco conversa
@@ -483,7 +535,7 @@ window.addEventListener("keydown", (evento) => {
             document.querySelector('#dialogoPersonagemBox').style.display = 'flex'
             jogador.isInteracting = true
             break
-
+          }
         case "w":
             teclas.w.pressionada = true
             ultimaTecla = "w"
