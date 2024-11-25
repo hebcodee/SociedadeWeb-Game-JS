@@ -5,11 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa</title>
     <link rel="stylesheet" href="./mapa.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+      * {
+        font-family: "Press Start 2P", cursive;
+      }
+    body {
+      background-color: #161616;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #ddd;
+    }
+
+    </style>
 </head>
 <body>
+  <div style="display: inline-block; position: relative;">
+
+    <div class="fundo"
+    style="
+      background-color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+    "
+  ></div>
     <canvas></canvas>
+    <div class="conteudo" style="position: absolute; top: 0; display: none;">
+      <span class="pergunta"></span>
+      <span class="spnQtd"></span>
+    </div>
+
+    <div
+    class="interfaceQuiz"
+    style="
+      background-color: white;
+      height: 140px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 4px black solid;
+      display: none;">
+    
+      <div class="respostas"
+      style="
+      width: 100%;
+      display: none; 
+      grid-template-columns: repeat(4, 1fr);">
+      </div>
+    </div>
+
+  <div
+    id="dialogoPersonagemBox"
+    style="
+      background-color: white;
+      height: 140px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-top: 4px black solid;
+      display: none;
+      padding: 12px;"
+  ></div>
+</div>
+    <script src="../data/quiz.js" type="module"></script>
     <script src="../data/colisao.js"></script>
     <script src="../data/interacao.js"></script>
+    <script src="./funcoes.js"></script>
+    <script src="./classes.js"></script>
     <script src="./mapa.js"></script>
 </body>
 </html>
