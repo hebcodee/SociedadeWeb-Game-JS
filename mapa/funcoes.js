@@ -19,26 +19,75 @@ function checkForCharacterCollision({
   }) {
     jogador.interactionAsset = null
 
+    if (jogador.aparecer){
+      for (let i = 0; i < personagens.length; i++) {
+        const personagem = personagens[i]
+        if (
+          rectangularCollision({
+            rectangle1: jogador,
+            rectangle2: {
+              ...personagem,
+              posicao: {
+                x: personagem.posicao.x + personagemDesvio.x,
+                y: personagem.posicao.y + personagemDesvio.y
+              }}})) {
+                if (personagem.aparecer){
+                  jogador.interactionAsset = personagem
+                  break
+                }
+          
+        }}}}
+
+    
+  function desativarHeb(){
     for (let i = 0; i < personagens.length; i++) {
       const personagem = personagens[i]
-  
-      if (
-        rectangularCollision({
-          rectangle1: jogador,
-          rectangle2: {
-            ...personagem,
-            posicao: {
-              x: personagem.posicao.x + personagemDesvio.x,
-              y: personagem.posicao.y + personagemDesvio.y
-            }
-          }
-        })
-      ) {
-        jogador.interactionAsset = personagem
-        break
+
+      if(personagem.nome === "heb"){
+        personagem.aparecer = false
       }
+    
     }
+    bordas[209].colisao=false
   }
+
+  function ativarHeb(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "heb"){
+        personagem.aparecer = true
+      }
+    
+    }
+    bordas[209].colisao=true
+  }
+
+  function ativarAnonimo(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "anonimo"){
+        personagem.aparecer = true
+      }
+    
+    }
+    bordas[210].colisao=true
+  }
+
+  function desativarAnonimo(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "anonimo"){
+        personagem.aparecer = false
+      }
+    
+    }
+    bordas[210].colisao=false
+  }
+
+  
 
   function verificarInteracaoColisao({ 
     interacoes,
@@ -70,6 +119,7 @@ function checkForCharacterCollision({
   
 function startQuiz(){
     // pergunta.innerHTML = `voce acertou ${perguntasCorretas} de ${perguntas.length}`;
+    espacoAtivo = false
     conteudo.style.display = "flex"
     fundo.style.display = "flex"
     interfaceQuiz.style.display = "flex"

@@ -9,7 +9,7 @@ export default [
         ],
     },
     { // 2
-        pergunta: "Com o que nathan sofre mais por perder no roubo?",
+        pergunta: "Com o que nathan mais sofreu no assalto?",
         respostas: [
             {option: "Marmita", correct: true},
             {option: "Celular", correct: false},

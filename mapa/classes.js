@@ -6,6 +6,7 @@ class Borda {
         this.width = 96
         this.height = 96
         this.id = id
+        this.colisao = true
     }
 
     desenhar () {
@@ -61,7 +62,7 @@ class Sprite {
 
 // ---------------
 class Personagem extends Sprite {
-    constructor({posicao, velocidade, image, quadros = { max: 1, hold: 10}, sprites, animacao = false, dialogo = [''], aparecer}) {
+    constructor({posicao, velocidade, image, quadros = { max: 1, hold: 10}, sprites, animacao = false, dialogo = [''], aparecer, nome}) {
       super({
         posicao,
         velocidade,
@@ -72,6 +73,7 @@ class Personagem extends Sprite {
         aparecer
       })
       this.aparecer = aparecer
+      this.nome = nome
       this.dialogo = dialogo
       this.dialogoIndex = 0
     }
