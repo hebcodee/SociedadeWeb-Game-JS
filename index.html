@@ -1,97 +1,121 @@
 <!DOCTYPE html>
-<html lang="pt-br"> 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Iago Patrick" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sociedade Web | Login</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <link rel="icon" href="imagens/pixil-frame-0 (2).ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-    rel="stylesheet"
-  />
-
-  <body>
-    <div class="top">
-      <h1>Sociedade Web</h1>
-      <img src="imagens/martelo.png" alt="" />
-    </div>
-
-    <div class="container">
-      <div class="bubble bubble1"></div>
-      <div class="bubble bubble2"></div>
-      <div class="bubble bubble3"></div>
-      <div class="bubble bubble4"></div>
-      <div class="bubble bubble5"></div>
-      
-    <div class="container2">
-      
-      <div class="login">
-        <h2>Login</h2>
-        <form action="#">
-          <div class="input">
-            <input type="text" required />
-            <label>Usuário</label>
-          </div>
-          <div class="input">
-            <input type="password" required />
-            <label>Senha</label>
-          </div>
-          <div class="forgot">
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-          <div class="loginlink">
-            <a href="#">Criar conta</a>
-          </div>
-          <button type="submit" class="btnlogin">Entrar</button>
-        </form>
-      </div>
-      
-      <div class="registro">
-        <h2>Registro</h2>
-        <form action="#">
-          <div class="input">
-            <input type="text" required />
-            <label>Usuário</label>
-          </div>
-          <div class="input">
-            <input type="email" required />
-            <label>Email</label>
-          </div>
-          <div class="input">
-            <input type="password" required />
-            <label>Senha</label>
-          </div>
-          <div class="registrolink">
-            <a href="#">Já tem uma conta?</a>
-          </div>
-          <button type="submit" class="btnregistro">Registrar</button>
-        </form>
-       </div>
-      </div>
-    </div>
-      
-    </div>
-
-      <script src="script.js"></script>
-      
-    <div class="footer">
-      <div class="autores">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap');
         
-        <h3> <a href="https://github.com/iAzrxel" target="_blank" rel="noopener noreferrer">Iago Patrick</a> • <a href="https://github.com/hebcodee" target="_blank" rel="noopener noreferrer">Herberth Guimarães</a> • <a href="https://github.com/Nathan-Brito1999" target="_blank" rel="noopener noreferrer">Natan Britos</a> • <a href="https://github.com/Daniel-Bandeira" target="_blank" rel="noopener noreferrer">Daniel Bandeira</a> </h3> 
-        <hr>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            border: none;
+            font-family: "Press Start 2P", cursive;
+        }
+
+        .login-form {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .login-header {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 8px;
+        }
+
+        .login-header img{
+            width: 100px;
+        }
+
+        .login-header h1{
+            color: #333;
+        }
+
+        .login-header h2{
+            color: #333;
+            font-size: 0.8em;
+            margin-top: 0;
+        }
+
+        .login-input {
+            border: 2px solid #333;
+            border-radius: 8px;
+            color: #333;
+            font-size: 1em;
+            margin-bottom: 15px;
+            max-width: 300px;
+            outline: none;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .login-button {
+            background-color: rgb(194, 36, 8);
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .login-button:disabled {
+            background-color: #eee;
+            color: #aaa;
+            cursor: auto;
+        }
         
-      </div>
-    </div>
-  </body>
+        .selecao-personagem {
+            display: flex;
+            position: relative;
+        }
+        .selecao-personagem button {
+            position: absolulte;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            align-items: center;
+            margin-top: 150px;
+            background-color: white;
+            color: rgb(165, 156, 156);
+        }
+
+        .selecao-personagem button:hover {
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <form class="login-form">
+
+        <div class="login-header">
+            <img src="imagens/logo.png" alt="logosociedadeweb">
+            <h1>Sociedade Web</h1>
+            <h2>Escolha seu peronsagem</h2>
+        </div>
+        <div class="selecao-personagem">
+            <button type="button" onclick="trocar()"" style="font-size: 80px; display: flex; justify-content: center; align-items: center; text-align: center"><</button>
+
+            <img id="personagem" src="imagens/masculino2.png" alt="personagem" style="width: 300px;">
+
+            <button type="button" onclick="trocar()" style="font-size: 80px; display: flex; justify-content: center; align-items: center; text-align: center;">></button>
+        </div>
+
+        <input type="text" placeholder="Name" class="login-input">
+        <button type="submit" class="login-button" disabled>Jogar</button>
+
+    </form>
+    <script src="index.js"></script>
+</body>
 </html>

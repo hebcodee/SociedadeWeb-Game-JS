@@ -304,7 +304,7 @@ const renderizaveis= [mapa, ...bordas, ...personagens, jogador, sobreposicao]
 
 bordas[210].colisao=false
 // console.log("Quantidade: " + bordas.length)
-let velocidadeMovimento = 3
+let velocidadeMovimento = 10
 function animacao() {
     window.requestAnimationFrame(animacao) 
     renderizaveis.forEach((renderizavel) => {
