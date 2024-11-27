@@ -30,6 +30,7 @@ class Sprite {
         this.animacao = animacao,
         this.sprites = sprites
         this.aparecer = true
+        this.quizUsado = false
     }
 
     desenhar() {

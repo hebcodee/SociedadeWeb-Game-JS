@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa</title>
-    <link rel="stylesheet" href="./mapa.css">
+    <link rel="stylesheet" href="./mural.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -32,6 +32,14 @@
       background-color: #ddd;
     }
 
+    .conteudo {
+      justify-content: center;
+      align-items: center;
+      display: flex;
+
+    }
+
+
     </style>
 </head>
 <body>
@@ -45,17 +53,30 @@
       right: 0;
       bottom: 0;
       left: 0;
-      display: none;
-    "
-  ></div>
-    <canvas></canvas>
-    <div class="conteudo" style="position: absolute; top: 0; display: none;">
-      <span class="pergunta"></span>
-      <span class="spnQtd"></span>
+      display: none;"></div>
+
+
+    <div class="Mural">
+      <header>
+          <div class="titulomural">
+              <h1>Mural</h1>
+              <label class="adcimagem" for="arquivo">Adicione uma imagem</label>
+              <input type="file" id="arquivo" name="arquivo" accept="image/*" multiple>
+              <label for="arquivo" class="botao-upload">+</label>
+          </div>
+      </header>
     </div>
 
-    <div
-    class="interfaceQuiz"
+    <div class="mural" id="mural"></div>
+
+    <canvas></canvas>
+
+    <div class="conteudo" >
+      <span class="pergunta" style="position: absolute; top: 20px; display: none; align-items: center; min-height: 40vh; font-size: 1.5em; margin-right: 10%; margin-left: 10%;"></span>
+      <span class="spnQtd" style="position: absolute; top: 20px; justify-content: end; display: none; right: 45px;"></span>
+    </div>
+
+    <div class="interfaceQuiz"
     style="
       background-color: white;
       height: 140px;
@@ -74,8 +95,7 @@
       </div>
     </div>
 
-  <div
-    id="dialogoPersonagemBox"
+  <div id="dialogoPersonagemBox"
     style="
       background-color: white;
       height: 140px;
@@ -89,6 +109,7 @@
   ></div>
 </div>
     <script src="../data/quiz.js" type="module"></script>
+    <script src="../data/mural.js" type="module"></script>
     <script src="../data/colisao.js"></script>
     <script src="../data/interacao.js"></script>
     <script src="./funcoes.js"></script>

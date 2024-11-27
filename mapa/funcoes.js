@@ -87,7 +87,53 @@ function checkForCharacterCollision({
     bordas[210].colisao=false
   }
 
-  
+  function mudarTextoTuring(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+      const teste3 = [
+        "Voce ja fez o quiz"
+      ];
+
+      if(personagem.nome === "turing"){
+        personagem.dialogo = teste3;
+      }
+    }
+  }
+
+  function desativarHamburguer(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "hamburguer"){
+        personagem.aparecer = false
+      }
+    
+    }
+    bordas[211].colisao=false
+  }
+
+  function ativarHamburguer(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "hamburguer"){
+        personagem.aparecer = true
+      }
+    
+    }
+    bordas[211].colisao=false
+  }
+
+  function ativarAnimacaoHamburguer(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "hamburguer"){
+        personagem.animacao = true
+      }
+    
+    }
+  }
 
   function verificarInteracaoColisao({ 
     interacoes,
@@ -118,10 +164,27 @@ function checkForCharacterCollision({
 
   
 function startQuiz(){
-    // pergunta.innerHTML = `voce acertou ${perguntasCorretas} de ${perguntas.length}`;
-    espacoAtivo = false
-    conteudo.style.display = "flex"
+    spnQtd.style.display = "flex"
+    pergunta.style.display = "flex"
     fundo.style.display = "flex"
     interfaceQuiz.style.display = "flex"
     respostas.style.display = "grid"
+}
+
+function abrirMural(){
+  espacoAtivo = false
+  spnQtd.style.display = "flex"
+  pergunta.style.display = "flex"
+  fundo.style.display = "flex"
+  interfaceQuiz.style.display = "flex"
+  respostas.style.display = "grid"
+}
+
+function fecharMural(){
+  espacoAtivo = false
+  spnQtd.style.display = "flex"
+  pergunta.style.display = "flex"
+  fundo.style.display = "flex"
+  interfaceQuiz.style.display = "flex"
+  respostas.style.display = "grid"
 }

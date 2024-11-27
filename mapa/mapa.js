@@ -5,6 +5,71 @@ const ctx = canvas.getContext("2d")
 canvas.width = 1024
 canvas.height = 576
 
+//Selecao Pesonagem
+const nomeJogador = localStorage.getItem("jogador")
+const personagemEscolhido = localStorage.getItem("personagem")
+
+const Feminino1Cima = "../imagens/personagens/daniel/danielCima.png";
+const Feminino1Esquerda = "../imagens/personagens/daniel/danielEsquerda.png";
+const Feminino1Baixo = "../imagens/personagens/daniel/danielBaixo.png";
+const Feminino1Direita = "../imagens/personagens/daniel/danielDireita.png";
+
+const Feminino2Cima = "imagens/feminino1.png";
+const Feminino2Esquerda = "imagens/feminino1.png";
+const Feminino2Baixo = "imagens/feminino1.png";
+const Feminino2Direita = "imagens/feminino1.png";
+
+// const Masculino1Cima = "imagens/feminino1.png";
+// const Masculino1Esquerda = "imagens/feminino1.png";
+// const Masculino1Baixo = "imagens/feminino1.png";
+// const Masculino1Direita = "imagens/feminino1.png";
+
+// const Masculino2Cima = "imagens/feminino1.png";
+// const Masculino2Esquerda = "imagens/feminino1.png";
+// const Masculino2Baixo = "imagens/feminino1.png";
+// const Masculino2Direita = "imagens/feminino1.png";
+
+// Declaração das variáveis fora dos blocos
+let imgCima;
+let imgEsquerda;
+let imgBaixo;
+let imgDireita;
+
+//Imagens Peronsagem
+if (personagemEscolhido == "masculino1"){
+   imgCima = Masculino1Cima
+   imgEsquerda = Masculino1Esquerda
+   imgBaixo = Masculino1Baixo
+   imgDireita = Masculino1Direita
+} else if(personagemEscolhido == "masculino2"){
+   imgCima = Masculino2Cima
+   imgEsquerda = Masculino2Esquerda
+   imgBaixo = Masculino2Baixo
+   imgDireita = Masculino2Direita
+} else if(personagemEscolhido == "feminino1"){
+   imgCima = Feminino1Cima
+   imgEsquerda = Feminino1Esquerda
+   imgBaixo = Feminino1Baixo
+   imgDireita = Feminino1Direita
+} else {
+   imgCima = Feminino2Cima
+   imgEsquerda = Feminino2Esquerda
+   imgBaixo = Feminino2Baixo
+   imgDireita = Feminino2Direita
+}
+
+const jogadorCimaImagem= new Image()
+jogadorCimaImagem.src= imgCima
+
+const jogadorEsquerdaImagem= new Image()
+jogadorEsquerdaImagem.src= imgEsquerda
+
+const jogadorBaixoImagem= new Image()
+jogadorBaixoImagem.src= imgBaixo
+
+const jogadorDireitaImagem= new Image()
+jogadorDireitaImagem.src= imgDireita
+
 //imagens
 const imagemMapa = new Image()
 imagemMapa.src= "../imagens/mapa/mapaSociedadeWeb.png"
@@ -13,51 +78,32 @@ const imagemSobreposicao = new Image()
 imagemSobreposicao.src= "../imagens/mapa/sobreposicaoMapa.png"
 
 //Iago
-const iagoCimaImagem= new Image()
-iagoCimaImagem.src= "../imagens/personagens/iago/iagoCima.png"
-const iagoEsquerdaImagem= new Image()
-iagoEsquerdaImagem.src= "../imagens/personagens/iago/iagoEsquerda.png"
 const iagoBaixoImagem= new Image()
 iagoBaixoImagem.src= "../imagens/personagens/iago/iagoBaixo.png"
-const iagoDireitaImagem= new Image()
-iagoDireitaImagem.src= "../imagens/personagens/iago/iagoDireita.png"
 
 //Heb
-const hebCimaImagem= new Image()
-hebCimaImagem.src= "../imagens/personagens/heb/hebCima.png"
-const hebEsquerdaImagem= new Image()
-hebEsquerdaImagem.src= "../imagens/personagens/heb/hebEsquerda.png"
 const hebBaixoImagem= new Image()
 hebBaixoImagem.src= "../imagens/personagens/heb/hebBaixo.png"
-const hebDireitaImagem= new Image()
-hebDireitaImagem.src= "../imagens/personagens/heb/hebDireita.png"
 
 //Nathan
-const nathanCimaImagem= new Image()
-nathanCimaImagem.src= "../imagens/personagens/nathan/nathanCima.png"
-const nathanEsquerdaImagem= new Image()
-nathanEsquerdaImagem.src= "../imagens/personagens/nathan/nathanEsquerda.png"
 const nathanBaixoImagem= new Image()
 nathanBaixoImagem.src= "../imagens/personagens/nathan/nathanBaixo.png"
-const nathanDireitaImagem= new Image()
-nathanDireitaImagem.src= "../imagens/personagens/nathan/nathanDireita.png"
 
 //Daniel
-const danielCimaImagem= new Image()
-danielCimaImagem.src= "../imagens/personagens/daniel/danielCima.png"
 const danielEsquerdaImagem= new Image()
 danielEsquerdaImagem.src= "../imagens/personagens/daniel/danielEsquerda.png"
-const danielBaixoImagem= new Image()
-danielBaixoImagem.src= "../imagens/personagens/daniel/danielBaixo.png"
-const danielDireitaImagem= new Image()
-danielDireitaImagem.src= "../imagens/personagens/daniel/danielDireita.png"
 
-//Personagens
+//Turing
 const turingBaixoImagem= new Image()
 turingBaixoImagem.src= "../imagens/personagens/turing/turingBaixo.png"
 
+//Anonimo
 const anonimoImagem= new Image()
 anonimoImagem.src= "../imagens/personagens/anonimo/anonimoImagem.png"
+
+//Hamburguer
+const hamburguerImagem= new Image()
+hamburguerImagem.src= "../imagens/hambuguerGlitch.png"
 
 //colisao mapa
 const colisaoMapa = []
@@ -92,6 +138,19 @@ colisaoMapa.forEach((row, i) => {
 //Interacoes
 const personagens = []
 const interacoes = []
+const teste = [
+  `Bem Vindo ${nomeJogador} à Sociedade Web`,
+  "O jogo ainda não está finalizado",
+  "Sinta-se livre para explorar o Mapa",
+  "Visite a Biblioteca"
+];
+
+const teste2 = [
+  "oi","Sou o Alan Turing", "Preparado para um Quiz?"
+];
+
+
+
 interacaoMapa.forEach((row, i) => {
     row.forEach((symbol, j) => {
         // Nathan
@@ -127,7 +186,7 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ["oi","Sou o Alan Turing", "Preparado para um Quiz?"],
+                  dialogo: teste2,
                   aparecer: true,
                   nome: "turing"
                 }))
@@ -165,7 +224,7 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ['Bem Vindo a Sociedade Web', "O jogo ainda nao esta finalizado", "Sinta-se Livre para explorar o Mapa", "Visite a Biblioteca"],
+                  dialogo: teste,
                   aparecer: true,
                   nome: "heb"
                 }))
@@ -209,6 +268,27 @@ interacaoMapa.forEach((row, i) => {
                 nome: "daniel"
               }))
           }
+          
+          //Hamburguer
+          else if (symbol === 2249) {
+            personagens.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: hamburguerImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["*Delicioso*"],
+                aparecer: false,
+                nome: "hamburguer"
+              }))
+          }
+
           // Pingpong
           else if (symbol === 2242) {
             interacoes.push(new Borda({posicao: {
@@ -269,13 +349,13 @@ const jogador = new Sprite({
         x: canvas.width / 2 - 128 / 4 / 2,
         y: canvas.height / 2 - 32 / 2
     },
-    image: danielBaixoImagem,
+    image: jogadorBaixoImagem,
     quadros: {max: 4, hold: 10},
     sprites: {
-        up: danielCimaImagem,
-        left: danielEsquerdaImagem,
-        down: danielBaixoImagem,
-        right: danielDireitaImagem
+        up: jogadorCimaImagem,
+        left: jogadorEsquerdaImagem,
+        down: jogadorBaixoImagem,
+        right: jogadorDireitaImagem
     }
 })
 
@@ -293,17 +373,18 @@ const objetosMoveis = [mapa, ...bordas, ...interacoes, ...personagens, sobreposi
 const renderizaveis= [mapa, ...bordas, ...personagens, jogador, sobreposicao]
 
 
-// bordas.forEach(e => {
-//   console.log(e)
-// })
+bordas.forEach(e => {
+  console.log(e)
+})
 
 
-// personagens.forEach(e => {
-//   console.log(e)
-// })
+personagens.forEach(e => {
+  console.log(e)
+})
+
+console.log("Quantidade: " + bordas.length)
 
 bordas[210].colisao=false
-// console.log("Quantidade: " + bordas.length)
 let velocidadeMovimento = 10
 function animacao() {
     window.requestAnimationFrame(animacao) 
@@ -504,15 +585,25 @@ window.addEventListener("keydown", (evento) => {
             if (jogador.interactionAsset.nome === "nathan"){
               desativarHeb();
               ativarAnonimo();
+              ativarHamburguer();
             }
 
             if (jogador.interactionAsset.nome === "anonimo"){
               desativarAnonimo();
+              ativarAnimacaoHamburguer();
             }
 
-            if (jogador.interactionAsset.nome === "turing"){
-              startQuiz();
+            if (jogador.interactionAsset.nome === "hamburguer"){
+              desativarHamburguer();
             }
+
+            if (jogador.interactionAsset.nome === "turing") {
+              if (!jogador.quizUsado) { 
+                  startQuiz();
+                  jogador.quizUsado = true
+              }
+              mudarTextoTuring()
+          }
             
 
             //AQUI Checkar se esta colidindo com o Turing
@@ -526,7 +617,7 @@ window.addEventListener("keydown", (evento) => {
 
     switch (evento.key) {
         case ' ':
-          if (espacoAtivo){
+          
             if (!jogador.interactionAsset) return
 
             //comeco conversa
@@ -535,7 +626,7 @@ window.addEventListener("keydown", (evento) => {
             document.querySelector('#dialogoPersonagemBox').style.display = 'flex'
             jogador.isInteracting = true
             break
-          }
+          
         case "w":
             teclas.w.pressionada = true
             ultimaTecla = "w"
