@@ -4,9 +4,9 @@ const form = document.querySelector(".login-form")
 const personagem = document.getElementById("personagem");
 var imgFeminino1 = "imagens/feminino1.png";
 var imgFeminino2 = "imagens/feminino2.png";
-var imgMasculino1 = "imagens/masculino1.png";
-var imgMasculino2 = "imagens/masculino2.png";
-let imagens = [imgFeminino2, imgMasculino1, imgFeminino1, imgMasculino2];
+var imgMasculino2 = "imagens/masculino1.png";
+var imgMasculino1 = "imagens/masculino2.png";
+let imagens = [imgFeminino2, imgMasculino2, imgFeminino1, imgMasculino1];
 let indiceAtual = 0
 
 function trocar(){
@@ -29,9 +29,9 @@ const handleSubmit = (event) => {
     
     localStorage.setItem("jogador", input.value)
 
-    if (personagem.src.includes("masculino1.png")) {
+    if (personagem.src.includes("masculino2.png")) {
         localStorage.setItem("personagem", "masculino1");
-    } else if(personagem.src.includes("masculino2.png")){
+    } else if(personagem.src.includes("masculino1.png")){
         localStorage.setItem("personagem", "masculino2")
     } 
     else if(personagem.src.includes("feminino1.png")){

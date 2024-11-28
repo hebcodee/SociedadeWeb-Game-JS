@@ -42,10 +42,7 @@ function finish(){
     fundo.style.display = "none"
     interfaceQuiz.style.display = "none"
     respostas.style.display = "none"
-
-    
 }
-
 
 function loadQuestion(){
     spnQtd.innerHTML = `${currentIndex + 1}/${perguntas.length}`;

@@ -9,25 +9,25 @@ canvas.height = 576
 const nomeJogador = localStorage.getItem("jogador")
 const personagemEscolhido = localStorage.getItem("personagem")
 
-const Feminino1Cima = "../imagens/personagens/daniel/danielCima.png";
-const Feminino1Esquerda = "../imagens/personagens/daniel/danielEsquerda.png";
-const Feminino1Baixo = "../imagens/personagens/daniel/danielBaixo.png";
-const Feminino1Direita = "../imagens/personagens/daniel/danielDireita.png";
+const Feminino1Cima = "../imagens/personagens/feminino/feminino01Cima.png";
+const Feminino1Esquerda = "../imagens/personagens/feminino/feminino01Esquerda.png";
+const Feminino1Baixo = "../imagens/personagens/feminino/feminino01Baixo.png";
+const Feminino1Direita = "../imagens/personagens/feminino/feminino01Direita.png";
 
-const Feminino2Cima = "imagens/feminino1.png";
-const Feminino2Esquerda = "imagens/feminino1.png";
-const Feminino2Baixo = "imagens/feminino1.png";
-const Feminino2Direita = "imagens/feminino1.png";
+const Feminino2Cima = "../imagens/personagens/feminino/feminino02Cima.png";
+const Feminino2Esquerda = "../imagens/personagens/feminino/feminino02Esquerda.png";
+const Feminino2Baixo = "../imagens/personagens/feminino/feminino02Baixo.png"
+const Feminino2Direita = "../imagens/personagens/feminino/feminino02Direita.png";
 
-// const Masculino1Cima = "imagens/feminino1.png";
-// const Masculino1Esquerda = "imagens/feminino1.png";
-// const Masculino1Baixo = "imagens/feminino1.png";
-// const Masculino1Direita = "imagens/feminino1.png";
+const Masculino1Cima = "../imagens/personagens/masculino/masculino01Cima.png";
+const Masculino1Esquerda = "../imagens/personagens/masculino/masculino01Esquerda.png";
+const Masculino1Baixo = "../imagens/personagens/masculino/masculino01Baixo.png";
+const Masculino1Direita = "../imagens/personagens/masculino/masculino01Direita.png";
 
-// const Masculino2Cima = "imagens/feminino1.png";
-// const Masculino2Esquerda = "imagens/feminino1.png";
-// const Masculino2Baixo = "imagens/feminino1.png";
-// const Masculino2Direita = "imagens/feminino1.png";
+const Masculino2Cima = "../imagens/personagens/masculino/masculino02Cima.png";
+const Masculino2Esquerda = "../imagens/personagens/masculino/masculino02Esquerda.png";
+const Masculino2Baixo = "../imagens/personagens/masculino/masculino02Baixo.png";
+const Masculino2Direita = "../imagens/personagens/masculino/masculino02Direita.png";
 
 // Declaração das variáveis fora dos blocos
 let imgCima;
@@ -81,25 +81,46 @@ imagemSobreposicao.src= "../imagens/mapa/sobreposicaoMapa.png"
 const iagoBaixoImagem= new Image()
 iagoBaixoImagem.src= "../imagens/personagens/iago/iagoBaixo.png"
 
+const iagoCimaImagem= new Image()
+iagoCimaImagem.src= "../imagens/personagens/iago/iagoCima.png"
+
 //Heb
 const hebBaixoImagem= new Image()
 hebBaixoImagem.src= "../imagens/personagens/heb/hebBaixo.png"
+
+const hebEsquerdaImagem= new Image()
+hebEsquerdaImagem.src= "../imagens/personagens/heb/hebEsquerda.png"
 
 //Nathan
 const nathanBaixoImagem= new Image()
 nathanBaixoImagem.src= "../imagens/personagens/nathan/nathanBaixo.png"
 
+const nathanDireitaImagem= new Image()
+nathanDireitaImagem.src= "../imagens/personagens/nathan/nathanDireita.png"
+
 //Daniel
+const danielCimaImagem= new Image()
+danielCimaImagem.src= "../imagens/personagens/daniel/danielCima.png"
+
 const danielEsquerdaImagem= new Image()
 danielEsquerdaImagem.src= "../imagens/personagens/daniel/danielEsquerda.png"
 
 //Turing
+const turingDireitaImagem= new Image()
+turingDireitaImagem.src= "../imagens/personagens/turing/turingDireita.png"
+
 const turingBaixoImagem= new Image()
 turingBaixoImagem.src= "../imagens/personagens/turing/turingBaixo.png"
 
 //Anonimo
 const anonimoImagem= new Image()
 anonimoImagem.src= "../imagens/personagens/anonimo/anonimoImagem.png"
+
+const anonimoEsquerdaImagem= new Image()
+anonimoEsquerdaImagem.src= "../imagens/personagens/anonimo/anonimoEsquerdaImagem.png"
+
+const anonimoDireitaImagem= new Image()
+anonimoDireitaImagem.src= "../imagens/personagens/anonimo/anonimoDireitaImagem.png"
 
 //Hamburguer
 const hamburguerImagem= new Image()
@@ -115,6 +136,12 @@ const interacaoMapa = []
 for (let i = 0; i < interacaoData.length; i += 38 ){
     interacaoMapa.push (interacaoData.slice(i, 38 + i))
 }
+
+const cenaFinalMapa = []
+for (let i = 0; i < cenaFinalData.length; i += 38 ){
+  cenaFinalMapa.push(cenaFinalData.slice(i, 38 + i))
+}
+
 
 const desvio = {
     x: -1400,
@@ -138,17 +165,189 @@ colisaoMapa.forEach((row, i) => {
 //Interacoes
 const personagens = []
 const interacoes = []
+const personagensFinal = []
 const teste = [
-  `Bem Vindo ${nomeJogador} à Sociedade Web`,
-  "O jogo ainda não está finalizado",
-  "Sinta-se livre para explorar o Mapa",
-  "Visite a Biblioteca"
+  `Olá, seja bem-vindo à SociedadeWeb ${nomeJogador}. Aqui você vai aprender muitas coisas legais sobre informática e programação. `,
+  "Meu nome é Herberth, e sou o guia que vai te ajudar a entender o que esse lugar tem de melhor. ",
+  "Vamos começar explorando a escola!",
+  "Antes de mais nada, fale com Nathan, ele está na biblioteca.",
 ];
 
 const teste2 = [
-  "oi","Sou o Alan Turing", "Preparado para um Quiz?"
+  `Olá, ${nomeJogador}! Me falaram muito bem sobre voce.`,
+  "Me chamo Alan Turign e vou lhe ensinar algumas coisas sobre Tecnologia.",
+  "Para que você entenda como os computadores realmente funcionam, é importante entender alguns conceitos fundamentais.",
+  "Vamos falar sobre como os computadores 'entendem' números e as grandes possibilidades que isso resulta.",
+  "Vou começar explicando como os números podem ser representados de diferentes maneiras, usando algo chamado 'bases'.",
+  "A base mais comum, que você usa no seu dia a dia, é a base 10, ou 'decimal', mas os computadores usam a base 2, ou 'binário'.",
+  "...",
+  "Quando você trabalha com binário, você usa apenas dois números: 0 e 1. Isso é o que os computadores realmente 'entendem'.",
+  "Tudo o que você vê na tela, todas as imagens, textos e vídeos, na verdade, são convertidos para uma sequência de zeros e uns.",
+  "Que formam grandes sistemas computacionais",
+  "...",
+  "Vamos dar um passo adiante e falar sobre decriptografia.",
+  "Um bom exemplo didatico é a Cifra de César, uma forma de criptografia em que as letras da mensagem são 'movidas' um número fixo de posições no alfabeto.",
+  "Por exemplo, se deslocarmos cada letra da palavra 'ABC' por 3, ela se tornará 'DEF'.",
+  "...",
+  "Parabéns, você já aprendeu os conceitos básicos de conversão de bases e decriptografia. Esses são apenas os primeiros passos, mas são muito importantes para começar a entender como a programação e a computação funcionam. ",
+  "Agora, para garantir que você realmente absorveu o conteúdo, vamos fazer um teste rápido sobre o que foi abordado. Boa sorte!",
 ];
 
+const teste3 = [
+  "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
+  "Não importa se você acertou tudo ou não",
+  "O mais importante é que aprendeu algo novo hoje.",
+  "Assim como eu, você também pode mudar o mundo com suas ideias!",
+  "Agora, que tal explorar mais um pouco nosso ambiente?",
+  "Experimente ir na nossa area de lazer."
+]
+
+const antesDaniel = [
+  "Que cara estranho o que acabou de comprar um hamburguer",
+  "Mas enfim...",
+  "Voce esta atras da chave não é mesmo?",
+  "Tome ela aqui",
+  "*Portas do Laboratorio se Abriram*",
+]
+
+const depoisDaniel = [
+  "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
+  "Não importa se você acertou tudo ou não, o mais importante é que aprendeu algo novo hoje.",
+  "Alan Turing mudou o mundo com sua mente brilhante, e você também pode mudar o mundo com suas ideias! Agora, que tal continuar aprendendo?",
+]
+
+
+// cenaFinalMapa.forEach((row, i) => {
+//   row.forEach((symbol, j) => {
+
+//     //Nathan
+//       if (symbol === 2244) {
+//         personagensFinal.push(
+//               new Personagem({
+//                 posicao: {
+//                   x: j * Borda.width + desvio.x,
+//                   y: i * Borda.height + desvio.y
+//                 },
+//                 image: nathanDireitaImagem,
+//                 quadros: {
+//                   max: 4,
+//                   hold: 60
+//                 },
+//                 animacao: false,
+//                 dialogo: [
+//                   "Ah, novato, que bom que você chegou! A aula já já vai começar, mas antes disso, preciso lhe contar sobre o nosso professor.",
+//                   "Você sabia que o nosso mundo digital, tudo que você conhece sobre computadores e programação, tem um pouco de Alan Turing nele?",
+//                   "Turing foi um dos maiores matemáticos e cientistas da história, e ele ajudou a criar os conceitos que são a base de tudo que usamos hoje.",
+//                   "Mas não foi só isso, ele foi um verdadeiro herói durante a Segunda Guerra Mundial! Ele ajudou a decifrar códigos secretos e, com isso, salvou milhares de vidas.",
+//                   "Vamos falar mais sobre ele, e quem sabe você se inspira também a aprender mais sobre como os computadores funcionam?",
+//                   "...",
+//                 ],
+//                 aparecer: false,
+//                 nome: "nathanFinal"
+//               }))
+//         }
+
+//         // Alan Turing
+//         else if (symbol === 2245) {
+//           personagensFinal.push(
+//               new Personagem({
+//                 posicao: {
+//                   x: j * Borda.width + desvio.x,
+//                   y: i * Borda.height + desvio.y
+//                 },
+//                 image: turingDireitaImagem,
+//                 quadros: {
+//                   max: 4,
+//                   hold: 60
+//                 },
+//                 animacao: false,
+//                 dialogo: ["Adeus"],
+//                 aparecer: false,
+//                 nome: "turingFinal"
+//               }))
+//         }
+
+//         // Anonimo
+//         else if (symbol === 2247) {
+//           personagensFinal.push(
+//               new Personagem({
+//                 posicao: {
+//                   x: j * Borda.width + desvio.x,
+//                   y: i * Borda.height + desvio.y
+//                 },
+//                 image: anonimoDireitaImagem,
+//                 quadros: {
+//                   max: 4,
+//                   hold: 60
+//                 },
+//                 animacao: false,
+//                 dialogo: ["Adeus"],
+//                 aparecer: false, 
+//                 nome: "anonimoFinal"
+//               }))
+//         }
+
+//         // Herberth
+//         else if (symbol === 2243) {
+//           personagensFinal.push(
+//               new Personagem({
+//                 posicao: {
+//                   x: j * Borda.width + desvio.x,
+//                   y: i * Borda.height + desvio.y
+//                 },
+//                 image: hebEsquerdaImagem,
+//                 quadros: {
+//                   max: 4,
+//                   hold: 60
+//                 },
+//                 animacao: false,
+//                 dialogo: ["Adeus"],
+//                 aparecer: false,
+//                 nome: "hebFinal"
+//               }))
+//         }
+
+//         // Iago
+//         else if (symbol === 2242) {
+//           personagensFinal.push(
+//               new Personagem({
+//                 posicao: {
+//                   x: j * Borda.width + desvio.x,
+//                   y: i * Borda.height + desvio.y
+//                 },
+//                 image: iagoCimaImagem,
+//                 quadros: {
+//                   max: 4,
+//                   hold: 60
+//                 },
+//                 animacao: false,
+//                 dialogo: ["Adeus"],
+//                 aparecer: false,
+//                 nome: "iagoFinal"
+//               }))
+//         }
+
+//         // Daniel
+//         else if (symbol === 2246) {
+//           personagensFinal.push(
+//             new Personagem({
+//               posicao: {
+//                 x: j * Borda.width + desvio.x,
+//                 y: i * Borda.height + desvio.y
+//               },
+//               image: danielCimaImagem,
+//               quadros: {
+//                 max: 4,
+//                 hold: 60
+//               },
+//               animacao: false,
+//               dialogo: ["Adeus"],
+//               aparecer: false,
+//               nome: "danielFinal"
+//             }))
+//         }
+//   })
+// })
 
 
 interacaoMapa.forEach((row, i) => {
@@ -167,7 +366,21 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ['Oi voce é novo por aqui', "Olhe a biblioteca e depois va ao refeitorio", "alguem viu minha marmita?"],
+                  dialogo: [
+                    "Ah, novato, que bom que você chegou!",
+                    "O que voce achou do nosso ambiente?",
+                    "A aula já já vai começar, mas antes disso, quero lhe contar sobre o nosso professor Alan Turing.",
+                    "Você sabia que o nosso mundo digital, tudo que você conhece sobre computadores e programação, tem um pouco de Alan Turing nele?",
+                    "Turing foi um dos maiores matemáticos e cientistas da história, e ele ajudou a criar os conceitos que são a base de tudo que usamos hoje.",
+                    "Mas não foi só isso, ele foi um verdadeiro herói durante a Segunda Guerra Mundial! Ele ajudou a decifrar códigos secretos dos nazistas e, com isso, salvou milhares de vidas.",
+                    "...",
+                    "Os nazistas usavam uma máquina chamada Enigma, e Turing criou uma maneira de quebrá-la, o que foi essencial para a vitória dos aliados.",
+                    "Além disso, Turing desenvolveu a ideia de um 'computador universal', algo que mais tarde se tornaria a base de todos os computadores que usamos hoje.",
+                    "...",
+                    "Agora que você já sabe um pouco sobre Alan Turing e o impacto que ele teve na ciência da computação, vamos para a aula com ele!",
+                    "Antes disso voce precisa ir no refeitorio pegar a chave com Daniel",
+                    "Ele esta com uma camisa Laranja",
+                  ],
                   aparecer: true,
                   nome: "nathan"
                 }))
@@ -185,7 +398,7 @@ interacaoMapa.forEach((row, i) => {
                     max: 4,
                     hold: 60
                   },
-                  animacao: true,
+                  animacao: false,
                   dialogo: teste2,
                   aparecer: true,
                   nome: "turing"
@@ -204,8 +417,14 @@ interacaoMapa.forEach((row, i) => {
                     max: 4,
                     hold: 60
                   },
-                  animacao: true,
-                  dialogo: ['Coma este hamburguer suculento'],
+                  animacao: false,
+                  dialogo: [
+                    'Olá...',
+                    'Voce é novo por aqui nao é?',
+                    'Eu comprei esse hamburguer, mas acabei ficando sem fome',
+                    'Voce quer ele pra voce?',
+                    'hihihi',
+                  ],
                   aparecer: false,
                   nome: "anonimo"
                 }))
@@ -243,7 +462,15 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: true,
-                  dialogo: ["iae, suave mofi?", "Bem deboa?", 'Quer conhecer os melhores Hamburgueres da Cidade?', "Ou jogar um Pinpong de nivel profissional?", "vem comigo ratao"],
+                  dialogo: [
+                    `Oi ${nomeJogador}, tudo deboa? Me chamo Patrick`,
+                    "Notei que a SociedadeWeb está com alguns glitches, depois que um cara estranho encapuzado apareceu.",
+                    "Nao sei se isso vai da problemas futuramente",
+                    "Bom...",
+                    "Nossa area de diversao ainda esta em desenvolvimento",
+                    "Não poderemos jogar hoje, mas quem sabe outro dia",
+                    "Ate breve"
+                  ],
                   aparecer: true,
                   nome: "iago"
                 }))
@@ -263,7 +490,7 @@ interacaoMapa.forEach((row, i) => {
                   hold: 60
                 },
                 animacao: true,
-                dialogo: ["Oii seja bem vindo","Gostaria de comer um caldo de xana?", "As Portas do Laboratorio de Informatica Abriram"],
+                dialogo: antesDaniel, //AQUI
                 aparecer: true,
                 nome: "daniel"
               }))
@@ -283,9 +510,29 @@ interacaoMapa.forEach((row, i) => {
                   hold: 60
                 },
                 animacao: false,
-                dialogo: ["*Delicioso*"],
+                dialogo: ["*Delicioso*", "*Risadas Malignas Ao Fundo*"],
                 aparecer: false,
                 nome: "hamburguer"
+              }))
+          }
+
+          //Portas Sala Computacao
+          else if (symbol === 2250) {
+            personagens.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: hamburguerImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Porta Fechada", "Va ao Refeitorio para abrir"],
+                aparecer: true,
+                nome: "portaComputacao"
               }))
           }
 
@@ -369,29 +616,26 @@ const teclas = {
     d: {pressionada: false},
 }
 
-const objetosMoveis = [mapa, ...bordas, ...interacoes, ...personagens, sobreposicao]
-const renderizaveis= [mapa, ...bordas, ...personagens, jogador, sobreposicao]
-
-
-bordas.forEach(e => {
-  console.log(e)
-})
-
-
-personagens.forEach(e => {
-  console.log(e)
-})
-
-console.log("Quantidade: " + bordas.length)
-
+// bordas.forEach(e => {
+//   console.log(e)
+// })
+// personagens.forEach(e => {
+//   console.log(e)
+// })
+// console.log("Quantidade: " + bordas.length)
 bordas[210].colisao=false
 let velocidadeMovimento = 10
+
+const objetosMoveis = [mapa, ...bordas, ...interacoes, ...personagens, sobreposicao, ...personagensFinal]
+const renderizaveis= [mapa, ...bordas, ...personagens, jogador, sobreposicao, ...personagensFinal]
+var posicaoCenaFinal = false
+
 function animacao() {
     window.requestAnimationFrame(animacao) 
     renderizaveis.forEach((renderizavel) => {
         renderizavel.desenhar()
       })
-
+    
     //Movimentacao + Colisão
     let movimento = true  
     jogador.animacao = false
@@ -406,6 +650,14 @@ function animacao() {
             jogador,
             personagemDesvio: { x: 0, y: velocidadeMovimento }
           })
+
+        
+        // //Colisao Personagens Final
+        // checkForCharacterFinalCollision({
+        //   personagensFinal,
+        //   jogador,
+        //   personagemDesvio: { x: 0, y: velocidadeMovimento }
+        // })
 
         //Colisao interacoes
         verificarInteracaoColisao({
@@ -433,7 +685,9 @@ function animacao() {
 
 
         if(movimento)
-        objetosMoveis.forEach(movable => {movable.posicao.y += velocidadeMovimento})}
+        objetosMoveis.forEach(movable => {
+        movable.posicao.y += velocidadeMovimento
+      })}
 
         
     else if (teclas.a.pressionada && ultimaTecla === "a") {
@@ -446,7 +700,14 @@ function animacao() {
             jogador,
             personagemDesvio: { x: velocidadeMovimento, y: 0 }
           })
-        
+          
+        //Colisao Personagens Final
+        checkForCharacterFinalCollision({
+          personagensFinal,
+          jogador,
+          personagemDesvio: { x: 0, y: velocidadeMovimento }
+        })
+
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
@@ -487,6 +748,13 @@ function animacao() {
             personagemDesvio: { x: 0, y: -velocidadeMovimento }
           })
 
+        // //Colisao Personagens Final
+        // checkForCharacterFinalCollision({
+        //   personagensFinal,
+        //   jogador,
+        //   personagemDesvio: { x: 0, y: velocidadeMovimento }
+        // })
+
         //Colisao interacoes
         verificarInteracaoColisao({
           interacoes,
@@ -519,6 +787,13 @@ function animacao() {
         jogador.animacao = true
         jogador.image = jogador.sprites.right
         
+        //Colisao Personagens Final
+        checkForCharacterFinalCollision({
+          personagensFinal,
+          jogador,
+          personagemDesvio: { x: 0, y: velocidadeMovimento }
+        })
+
         //Colisao Personagens
         checkForCharacterCollision({
             personagens,
@@ -577,11 +852,6 @@ window.addEventListener("keydown", (evento) => {
             jogador.interactionAsset.dialogoIndex = 0
             document.querySelector('#dialogoPersonagemBox').style.display = 'none'
             
-
-            if (jogador.interactionAsset.nome === "iago"){
-              ativarHeb()
-            }
-            
             if (jogador.interactionAsset.nome === "nathan"){
               desativarHeb();
               ativarAnonimo();
@@ -589,12 +859,15 @@ window.addEventListener("keydown", (evento) => {
             }
 
             if (jogador.interactionAsset.nome === "anonimo"){
-              desativarAnonimo();
               ativarAnimacaoHamburguer();
             }
 
             if (jogador.interactionAsset.nome === "hamburguer"){
               desativarHamburguer();
+            }
+
+            if (jogador.interactionAsset.nome === "daniel"){
+              desativarPorta();
             }
 
             if (jogador.interactionAsset.nome === "turing") {
@@ -604,6 +877,17 @@ window.addEventListener("keydown", (evento) => {
               }
               mudarTextoTuring()
           }
+
+          if (jogador.interactionAsset.nome === "iago"){
+            desativarTodosPersonagens()
+            cenaFinal()
+            objetosMoveis.forEach(movable => {
+              movable.posicao.y += 180
+              movable.posicao.x += -1045
+            
+            })
+          }
+
             
 
             //AQUI Checkar se esta colidindo com o Turing

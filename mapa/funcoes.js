@@ -6,10 +6,12 @@ const fundo = document.querySelector('.fundo');
 const interfaceQuiz = document.querySelector('.interfaceQuiz');
 
 function rectangularCollision({rectangle1, rectangle2}) {
-    return(rectangle1.posicao.x + rectangle1.width >= rectangle2.posicao.x &&
+    if (jogador.aparecer){
+      return(rectangle1.posicao.x + rectangle1.width >= rectangle2.posicao.x &&
         rectangle1.posicao.x <= rectangle2.posicao.x +rectangle2.width &&
         rectangle1.posicao.y <= rectangle2.posicao.y + rectangle2.height &&
         rectangle1.posicao.y + rectangle1.height >= rectangle2.posicao.y)
+    }
 }
 
 function checkForCharacterCollision({ 
@@ -38,6 +40,32 @@ function checkForCharacterCollision({
           
         }}}}
 
+        function checkForCharacterFinalCollision({ 
+          personagensFinal,
+          jogador,
+          personagemFinalDesvio = { x: 0, y: 0 }
+        }) {
+          jogador.interactionAsset = null
+      
+          if (jogador.aparecer){
+            for (let i = 0; i < personagensFinal.length; i++) {
+              const personagemFinal = personagensFinal[i]
+              if (
+                rectangularCollision({
+                  rectangle1: jogador,
+                  rectangle2: {
+                    ...personagemFinal,
+                    posicao: {
+                      x: personagemFinal.posicao.x + personagemFinalDesvio.x,
+                      y: personagemFinal.posicao.y + personagemFinalDesvio.y
+                    }}})) {
+                      if (personagemFinal.aparecer){
+                        jogador.interactionAsset = personagemFinal
+                        break
+                      }
+                
+              }}}}
+
     
   function desativarHeb(){
     for (let i = 0; i < personagens.length; i++) {
@@ -46,7 +74,6 @@ function checkForCharacterCollision({
       if(personagem.nome === "heb"){
         personagem.aparecer = false
       }
-    
     }
     bordas[209].colisao=false
   }
@@ -112,6 +139,19 @@ function checkForCharacterCollision({
     bordas[211].colisao=false
   }
 
+  function desativarPorta(){
+    for (let i = 0; i < personagens.length; i++) {
+      const personagem = personagens[i]
+
+      if(personagem.nome === "portaComputacao"){
+        personagem.aparecer = false
+      }
+    
+    }
+    bordas[208].colisao=false
+    bordas[207].colisao=false
+  }
+
   function ativarHamburguer(){
     for (let i = 0; i < personagens.length; i++) {
       const personagem = personagens[i]
@@ -161,7 +201,6 @@ function checkForCharacterCollision({
     }
   }
 
-
   
 function startQuiz(){
     spnQtd.style.display = "flex"
@@ -171,20 +210,70 @@ function startQuiz(){
     respostas.style.display = "grid"
 }
 
-function abrirMural(){
-  espacoAtivo = false
-  spnQtd.style.display = "flex"
-  pergunta.style.display = "flex"
-  fundo.style.display = "flex"
-  interfaceQuiz.style.display = "flex"
-  respostas.style.display = "grid"
+
+function desativarTodosPersonagens(){
+  for (let i = 0; i < personagens.length; i++) {
+    const personagem = personagens[i]
+
+    if(personagem.nome === "daniel"){
+      personagem.aparecer = false
+    }
+
+    if(personagem.nome === "nathan"){
+      personagem.aparecer = false
+    }
+
+    if(personagem.nome === "turing"){
+      personagem.aparecer = false
+    }
+
+    if(personagem.nome === "iago"){
+      personagem.aparecer = false
+    }
+
+    if(personagem.nome === "heb"){
+      personagem.aparecer = false
+    }
+
+  
+  }
+  bordas[209].colisao=false
+  bordas[216].colisao=false
+  bordas[215].colisao=false
+  bordas[207].colisao=false
+  bordas[206].colisao=false
+  bordas[209].colisao=false
 }
 
-function fecharMural(){
-  espacoAtivo = false
-  spnQtd.style.display = "flex"
-  pergunta.style.display = "flex"
-  fundo.style.display = "flex"
-  interfaceQuiz.style.display = "flex"
-  respostas.style.display = "grid"
+function redefinirPosicao(){
+  objetosMoveis.forEach(movable => {movable.posicao.x = desvio.x; })
 }
+
+function cenaFinal(){
+  for (let i = 0; i < personagensFinal.length; i++) {
+    const personagemFinal = personagensFinal[i]
+
+    if(personagemFinal.nome === "hebFinal"){
+      personagemFinal.aparecer = true
+    }
+
+    if(personagemFinal.nome === "danielFinal"){
+      personagemFinal.aparecer = true
+    }
+
+    if(personagemFinal.nome === "anonimoFinal"){
+      personagemFinal.aparecer = true
+    }
+
+    if(personagemFinal.nome === "turingFinal"){
+      personagemFinal.aparecer = true
+    }
+
+    if(personagemFinal.nome === "iagoFinal"){
+      personagemFinal.aparecer = true
+    }
+
+    if(personagemFinal.nome === "nathanFinal"){
+      personagemFinal.aparecer = true
+    }
+  }}

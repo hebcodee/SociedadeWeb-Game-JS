@@ -1,47 +1,70 @@
 export default [
     { // 1
-        pergunta: "Tem Mil Paus numa parede Com quantos voce se engasga ?",
+        pergunta: "Se você tem o número 1010 no sistema binário, qual seria o número correspondente em decimal (base 10)?",
         respostas: [
-            {option: "Todos", correct: false},
-            {option: "5", correct: false},
-            {option: "Nenhum", correct: true},
-            {option: "1", correct: false},
+            {option: "8", correct: false},
+            {option: "12", correct: false},
+            {option: "10", correct: true},
+            {option: "14", correct: false},
         ],
     },
     { // 2
-        pergunta: "Com o que nathan mais sofreu no assalto?",
+        pergunta: "Se você tiver a palavra ‘HELLO’ e deslocar cada letra por 2 posições no alfabeto, qual será o resultado?",
         respostas: [
-            {option: "Marmita", correct: true},
-            {option: "Celular", correct: false},
-            {option: "Virgindade", correct: false},
-            {option: "Bolsa", correct: false},
+            {option: "JGNNQ", correct: true},
+            {option: "HFMMP", correct: false},
+            {option: "IFMMP", correct: false},
+            {option: "KHOOR", correct: false},
         ],
     },
     { // 3
-        pergunta: "O que é melhor?",
+        pergunta: "Se você tiver o número 2F no sistema hexadecimal, qual é o valor correspondente no sistema decimal?",
         respostas: [
-            {option: "xana", correct: false},
-            {option: "hamburguer", correct: true},
-            {option: "pizza", correct: false},
-            {option: "xereca", correct: false},
-        ],
-    },
-    { // 4
-        pergunta: "Quem é o viado?",
-        respostas: [
-            {option: "nathan", correct: false},
-            {option: "nathan", correct: false},
-            {option: "nathan", correct: true},
-            {option: "nathan", correct: false},
+            {option: "40", correct: false},
+            {option: "47", correct: true},
+            {option: "50", correct: false},
+            {option: "60", correct: false},
         ],
     },
     { // 5
-        pergunta: "qual nome de daniel?",
+        pergunta: "Alan Turing foi responsável por ajudar a quebrar o código da máquina Enigma durante a Segunda Guerra Mundial. Isso é verdade ou falso?",
         respostas: [
-            {option: "patrck", correct: false},
-            {option: "nathan", correct: false},
-            {option: "iago", correct: false},
-            {option: "herberth", correct: true},
+            {option: "Verdadeiro  ", correct: true},
+            {option: "Falso", correct: false},
+        ],
+    },
+    { // 6
+        pergunta: "Alan Turing inventou uma coisa chamada 'Máquina de Turing', que é a base do computador moderno? A Máquina de Turing era um modelo teórico de como resolver problemas. Ela ainda é usada como referência hoje! Você acha que isso é verdadeiro ou falso?",
+        respostas: [
+            {option: "Verdadeiro  ", correct: true},
+            {option: "Falso", correct: false},
+        ],
+    },
+    { // 7
+        pergunta: "Alan Turing teve um papel fundamental na vitória dos aliados na Segunda Guerra Mundial. Ele ajudou a decifrar códigos usados pelos nazistas, principalmente a famosa máquina Enigma. Mas em que lugar ele trabalhou para fazer isso?",
+        respostas: [
+            {option: "Laboratório secreto de Bletchley Park", correct: true},
+            {option: "Castelo de Windsor", correct: false},
+            {option: "Ministério da Defesa de Londres", correct: false},
+            {option: "Universidade de Oxford", correct: false},
+        ],
+    },
+    { // 8
+        pergunta: "Se você tiver a palavra ‘CDE’ e deslocar cada letra 2 posições para trás no alfabeto, qual será o resultado?",
+        respostas: [
+            {option: "XYZ", correct: false},
+            {option: "DEF", correct: false},
+            {option: "ABC ", correct: true},
+            {option: "AAB", correct: false},
+        ],
+    },
+    { // 9
+        pergunta: "Se você tem o número 1101 em binário, qual seria o valor correspondente em decimal?",
+        respostas: [
+            {option: "7", correct: false},
+            {option: "15", correct: false},
+            {option: "12", correct: false},
+            {option: "13  ", correct: true},
         ],
     },
 ]
