@@ -114,15 +114,30 @@ function checkForCharacterCollision({
     bordas[210].colisao=false
   }
 
-  function mudarTextoTuring(){
+  function mudarTexto(){
     for (let i = 0; i < personagens.length; i++) {
       const personagem = personagens[i]
-      const teste3 = [
-        "Voce ja fez o quiz"
-      ];
+      const depoisTuring = [
+        "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
+        "Não importa se você acertou tudo ou não",
+        "O mais importante é que aprendeu algo novo hoje.",
+        "Assim como eu, você também pode mudar o mundo com suas ideias!",
+        "Agora, que tal explorar mais um pouco nosso ambiente?",
+        "Experimente ir na nossa area de lazer."
+      ]
 
+      const depoisDaniel = [
+        "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
+        "Não importa se você acertou tudo ou não, o mais importante é que aprendeu algo novo hoje.",
+        "Alan Turing mudou o mundo com sua mente brilhante, e você também pode mudar o mundo com suas ideias! Agora, que tal continuar aprendendo?",
+      ]
+      
       if(personagem.nome === "turing"){
-        personagem.dialogo = teste3;
+        personagem.dialogo = depoisTuring;
+      }
+
+      if(personagem.nome === "daniel"){
+        personagem.dialogo = depoisDaniel;
       }
     }
   }

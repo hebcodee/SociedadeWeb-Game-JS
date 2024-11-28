@@ -126,6 +126,13 @@ anonimoDireitaImagem.src= "../imagens/personagens/anonimo/anonimoDireitaImagem.p
 const hamburguerImagem= new Image()
 hamburguerImagem.src= "../imagens/hambuguerGlitch.png"
 
+//Porta
+const portaImagem= new Image()
+portaImagem.src= "../imagens/portaImage.png"
+
+const portaImagem2= new Image()
+portaImagem2.src= "../imagens/portaImage.png"
+
 //colisao mapa
 const colisaoMapa = []
 for (let i = 0; i < colisao.length; i += 38 ){
@@ -173,7 +180,7 @@ const teste = [
   "Antes de mais nada, fale com Nathan, ele está na biblioteca.",
 ];
 
-const teste2 = [
+const antesTuring = [
   `Olá, ${nomeJogador}! Me falaram muito bem sobre voce.`,
   "Me chamo Alan Turign e vou lhe ensinar algumas coisas sobre Tecnologia.",
   "Para que você entenda como os computadores realmente funcionam, é importante entender alguns conceitos fundamentais.",
@@ -193,14 +200,6 @@ const teste2 = [
   "Agora, para garantir que você realmente absorveu o conteúdo, vamos fazer um teste rápido sobre o que foi abordado. Boa sorte!",
 ];
 
-const teste3 = [
-  "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
-  "Não importa se você acertou tudo ou não",
-  "O mais importante é que aprendeu algo novo hoje.",
-  "Assim como eu, você também pode mudar o mundo com suas ideias!",
-  "Agora, que tal explorar mais um pouco nosso ambiente?",
-  "Experimente ir na nossa area de lazer."
-]
 
 const antesDaniel = [
   "Que cara estranho o que acabou de comprar um hamburguer",
@@ -210,144 +209,133 @@ const antesDaniel = [
   "*Portas do Laboratorio se Abriram*",
 ]
 
-const depoisDaniel = [
-  "Parabéns! Você concluiu o quiz e provou que tem muito potencial para se tornar um grande programador!",
-  "Não importa se você acertou tudo ou não, o mais importante é que aprendeu algo novo hoje.",
-  "Alan Turing mudou o mundo com sua mente brilhante, e você também pode mudar o mundo com suas ideias! Agora, que tal continuar aprendendo?",
-]
 
 
-// cenaFinalMapa.forEach((row, i) => {
-//   row.forEach((symbol, j) => {
 
-//     //Nathan
-//       if (symbol === 2244) {
-//         personagensFinal.push(
-//               new Personagem({
-//                 posicao: {
-//                   x: j * Borda.width + desvio.x,
-//                   y: i * Borda.height + desvio.y
-//                 },
-//                 image: nathanDireitaImagem,
-//                 quadros: {
-//                   max: 4,
-//                   hold: 60
-//                 },
-//                 animacao: false,
-//                 dialogo: [
-//                   "Ah, novato, que bom que você chegou! A aula já já vai começar, mas antes disso, preciso lhe contar sobre o nosso professor.",
-//                   "Você sabia que o nosso mundo digital, tudo que você conhece sobre computadores e programação, tem um pouco de Alan Turing nele?",
-//                   "Turing foi um dos maiores matemáticos e cientistas da história, e ele ajudou a criar os conceitos que são a base de tudo que usamos hoje.",
-//                   "Mas não foi só isso, ele foi um verdadeiro herói durante a Segunda Guerra Mundial! Ele ajudou a decifrar códigos secretos e, com isso, salvou milhares de vidas.",
-//                   "Vamos falar mais sobre ele, e quem sabe você se inspira também a aprender mais sobre como os computadores funcionam?",
-//                   "...",
-//                 ],
-//                 aparecer: false,
-//                 nome: "nathanFinal"
-//               }))
-//         }
+cenaFinalMapa.forEach((row, i) => {
+  row.forEach((symbol, j) => {
 
-//         // Alan Turing
-//         else if (symbol === 2245) {
-//           personagensFinal.push(
-//               new Personagem({
-//                 posicao: {
-//                   x: j * Borda.width + desvio.x,
-//                   y: i * Borda.height + desvio.y
-//                 },
-//                 image: turingDireitaImagem,
-//                 quadros: {
-//                   max: 4,
-//                   hold: 60
-//                 },
-//                 animacao: false,
-//                 dialogo: ["Adeus"],
-//                 aparecer: false,
-//                 nome: "turingFinal"
-//               }))
-//         }
+    //Nathan
+      if (symbol === 2244) {
+        personagensFinal.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: nathanDireitaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Adeus"],
+                aparecer: false,
+                nome: "nathanFinal"
+              }))
+        }
 
-//         // Anonimo
-//         else if (symbol === 2247) {
-//           personagensFinal.push(
-//               new Personagem({
-//                 posicao: {
-//                   x: j * Borda.width + desvio.x,
-//                   y: i * Borda.height + desvio.y
-//                 },
-//                 image: anonimoDireitaImagem,
-//                 quadros: {
-//                   max: 4,
-//                   hold: 60
-//                 },
-//                 animacao: false,
-//                 dialogo: ["Adeus"],
-//                 aparecer: false, 
-//                 nome: "anonimoFinal"
-//               }))
-//         }
+        // Alan Turing
+        else if (symbol === 2245) {
+          personagensFinal.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: turingDireitaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Adeus"],
+                aparecer: false,
+                nome: "turingFinal"
+              }))
+        }
 
-//         // Herberth
-//         else if (symbol === 2243) {
-//           personagensFinal.push(
-//               new Personagem({
-//                 posicao: {
-//                   x: j * Borda.width + desvio.x,
-//                   y: i * Borda.height + desvio.y
-//                 },
-//                 image: hebEsquerdaImagem,
-//                 quadros: {
-//                   max: 4,
-//                   hold: 60
-//                 },
-//                 animacao: false,
-//                 dialogo: ["Adeus"],
-//                 aparecer: false,
-//                 nome: "hebFinal"
-//               }))
-//         }
+        // Anonimo
+        else if (symbol === 2247) {
+          personagensFinal.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: anonimoDireitaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Adeus"],
+                aparecer: false, 
+                nome: "anonimoFinal"
+              }))
+        }
 
-//         // Iago
-//         else if (symbol === 2242) {
-//           personagensFinal.push(
-//               new Personagem({
-//                 posicao: {
-//                   x: j * Borda.width + desvio.x,
-//                   y: i * Borda.height + desvio.y
-//                 },
-//                 image: iagoCimaImagem,
-//                 quadros: {
-//                   max: 4,
-//                   hold: 60
-//                 },
-//                 animacao: false,
-//                 dialogo: ["Adeus"],
-//                 aparecer: false,
-//                 nome: "iagoFinal"
-//               }))
-//         }
+        // Herberth
+        else if (symbol === 2243) {
+          personagensFinal.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: hebEsquerdaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Adeus"],
+                aparecer: false,
+                nome: "hebFinal"
+              }))
+        }
 
-//         // Daniel
-//         else if (symbol === 2246) {
-//           personagensFinal.push(
-//             new Personagem({
-//               posicao: {
-//                 x: j * Borda.width + desvio.x,
-//                 y: i * Borda.height + desvio.y
-//               },
-//               image: danielCimaImagem,
-//               quadros: {
-//                 max: 4,
-//                 hold: 60
-//               },
-//               animacao: false,
-//               dialogo: ["Adeus"],
-//               aparecer: false,
-//               nome: "danielFinal"
-//             }))
-//         }
-//   })
-// })
+        // Iago
+        else if (symbol === 2242) {
+          personagensFinal.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: iagoCimaImagem,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Adeus"],
+                aparecer: false,
+                nome: "iagoFinal"
+              }))
+        }
+
+        // Daniel
+        else if (symbol === 2246) {
+          personagensFinal.push(
+            new Personagem({
+              posicao: {
+                x: j * Borda.width + desvio.x,
+                y: i * Borda.height + desvio.y
+              },
+              image: danielCimaImagem,
+              quadros: {
+                max: 4,
+                hold: 60
+              },
+              animacao: false,
+              dialogo: ["Adeus"],
+              aparecer: false,
+              nome: "danielFinal"
+            }))
+        }
+  })
+})
 
 
 interacaoMapa.forEach((row, i) => {
@@ -399,7 +387,7 @@ interacaoMapa.forEach((row, i) => {
                     hold: 60
                   },
                   animacao: false,
-                  dialogo: teste2,
+                  dialogo: antesTuring,
                   aparecer: true,
                   nome: "turing"
                 }))
@@ -442,7 +430,7 @@ interacaoMapa.forEach((row, i) => {
                     max: 4,
                     hold: 60
                   },
-                  animacao: true,
+                  animacao: false,
                   dialogo: teste,
                   aparecer: true,
                   nome: "heb"
@@ -490,7 +478,7 @@ interacaoMapa.forEach((row, i) => {
                   hold: 60
                 },
                 animacao: true,
-                dialogo: antesDaniel, //AQUI
+                dialogo: antesDaniel, 
                 aparecer: true,
                 nome: "daniel"
               }))
@@ -524,7 +512,7 @@ interacaoMapa.forEach((row, i) => {
                   x: j * Borda.width + desvio.x,
                   y: i * Borda.height + desvio.y
                 },
-                image: hamburguerImagem,
+                image: portaImagem,
                 quadros: {
                   max: 4,
                   hold: 60
@@ -547,12 +535,22 @@ interacaoMapa.forEach((row, i) => {
           }
           // Mural
           else if (symbol === 2251) {
-            interacoes.push(new Borda({posicao: {
-                x: j * Borda.width + desvio.x,
-                y: i * Borda.height + desvio.y
-            }},
-          id=i
-        ))
+            personagens.push(
+              new Personagem({
+                posicao: {
+                  x: j * Borda.width + desvio.x,
+                  y: i * Borda.height + desvio.y
+                },
+                image: portaImagem2,
+                quadros: {
+                  max: 4,
+                  hold: 60
+                },
+                animacao: false,
+                dialogo: ["Porta Fechada", "Va ao Refeitorio para abrir"],
+                aparecer: true,
+                nome: "portaComputacao"
+              }))
           }
 
           if (symbol !== 0) {
@@ -702,11 +700,11 @@ function animacao() {
           })
           
         //Colisao Personagens Final
-        checkForCharacterFinalCollision({
-          personagensFinal,
-          jogador,
-          personagemDesvio: { x: 0, y: velocidadeMovimento }
-        })
+        // checkForCharacterFinalCollision({
+        //   personagensFinal,
+        //   jogador,
+        //   personagemDesvio: { x: 0, y: velocidadeMovimento }
+        // })
 
         //Colisao interacoes
         verificarInteracaoColisao({
@@ -863,7 +861,8 @@ window.addEventListener("keydown", (evento) => {
             }
 
             if (jogador.interactionAsset.nome === "hamburguer"){
-              desativarHamburguer();
+              desativarAnonimo();
+              desativarHamburguer()
             }
 
             if (jogador.interactionAsset.nome === "daniel"){
@@ -873,7 +872,8 @@ window.addEventListener("keydown", (evento) => {
             if (jogador.interactionAsset.nome === "turing") {
               if (!jogador.quizUsado) { 
                   startQuiz();
-                  jogador.quizUsado = true
+                  jogador.quizUsado = true;
+                  mudarTexto()
               }
               mudarTextoTuring()
           }
@@ -886,6 +886,18 @@ window.addEventListener("keydown", (evento) => {
               movable.posicao.x += -1045
             
             })
+            const mensagemFinal = "Obrigado por testar o Jogo"
+            document.querySelector('#dialogoPersonagemBox').innerHTML = mensagemFinal
+            document.querySelector('#dialogoPersonagemBox').style.display = 'flex'
+            jogador.isInteracting = true
+
+            setTimeout(() => {
+              jogador.isInteracting = false
+              document.querySelector('#dialogoPersonagemBox').style.display = 'none'
+            }, 2000);
+
+              
+            
           }
 
             
