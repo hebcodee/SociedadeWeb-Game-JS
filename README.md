@@ -4,7 +4,7 @@
 O **Sociedade Web** é um projeto que busca criar um ambiente virtual interativo onde usuários podem se conectar através de personagens personalizados, explorar ambientes, participar de mini games e refletir sobre o impacto da tecnologia na sociedade.  
 Inspirado por plataformas como **Habbo Hotel**, **Club Penguin**, **Stardew Valley** e **Roblox**, o projeto combina interação social, estética em pixel art e uma abordagem educacional sobre tecnologia e sociedade.
 
-![Sociedade Web](/images/login/Banner 3.jpg)
+![Sociedade Web](imagens/login/Banner-3.jpg)
 ---
 
 ## 📌 Visão Geral
@@ -148,7 +148,7 @@ O Sociedade Web busca:
 O **Sociedade Web** proporciona um espaço virtual dinâmico e educativo, permitindo que os usuários explorem experiências sociais e reflitam sobre o impacto da tecnologia na sociedade moderna.
 
 
-![Obrigado a Todos](assets/images/Banner 2.jpg)
+![Obrigado a Todos](imagens/login/Banner-2.jpg)
 ---
 
 ## 🙏 Agradecimentos
