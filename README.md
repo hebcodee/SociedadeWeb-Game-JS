@@ -129,8 +129,6 @@ O Sociedade Web busca:
 - 🗂️ **Trello do projeto:**  
   https://trello.com/b/5RKQviyr/sociedade-web
 
-- 🌐 **Deploy no Netlify:**  
-  https://sociedadeweb.netlify.app
 
 ---
 
