@@ -21,6 +21,16 @@ O projeto surgiu como parte de um estudo sobre tecnologia e sociedade, enfatizan
 
 ---
 
+## 🔗 Links Importantes
+
+- 🕹 **Teste o Jogo:**  
+  https://teal-starlight-37ad2c.netlify.app/
+  
+- 🧾 **Repositório GitHub:**  
+  https://github.com/hebcodee/SociedadeWeb
+
+  ---
+
 ## 🎯 Objetivos do Projeto
 
 ### **Objetivo Geral**
@@ -49,7 +59,7 @@ O projeto utiliza estética **pixel art (32px)** com foco em:
 
 ---
 
-## 🕹️ Mecânicas do Jogo
+## 🎮 Mecânicas do Jogo
 
 - Criação e personalização de personagens  
 - Ambientes virtuais exploráveis  
@@ -118,17 +128,6 @@ O Sociedade Web busca:
 - Manutenção de segurança e privacidade  
 - Desenvolvimento de design acessível  
 - Estruturação da moderação  
-
----
-
-## 🔗 Links Importantes
-
-- 🧾 **Repositório GitHub:**  
-  https://github.com/hebcodee/SociedadeWeb
-
-- 🗂️ **Trello do projeto:**  
-  https://trello.com/b/5RKQviyr/sociedade-web
-
 
 ---
 
